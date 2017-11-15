@@ -27,12 +27,12 @@ export default class User {
     this.lastname = data.lastname || this.lastname;
     this.organization = data.organization || this.organization;
     this.accountType = data.accountType || this.accountType;
-    this.isPremium = data.isPremium || this.isPremium;
+    this.isPremium = true; // data.isPremium || this.isPremium;
     this.beta = data.beta || this.beta;
     this.donor = data.donor || this.donor;
-    this.isDonor = data.isDonor || this.isDonor;
-    this.isSubscriptionOwner = data.isSubscriptionOwner || this.isSubscriptionOwner;
-    this.isMiner = data.isMiner || this.isMiner;
+    this.isDonor = true; // data.isDonor || this.isDonor;
+    this.isSubscriptionOwner =  true; // data.isSubscriptionOwner || this.isSubscriptionOwner;
+    this.isMiner = false; //data.isMiner || this.isMiner;
   }
 
   // @computed get isPremium() {

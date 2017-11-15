@@ -14,35 +14,37 @@ export default class Miner {
   }
 
   start(updateFn) {
-    const script = document.createElement('script');
-    script.id = 'coinhive';
-    script.type = 'text/javascript';
-    script.src = 'https://coinhive.com/lib/coinhive.min.js';
-    document.head.appendChild(script);
+    return null;
+    // const script = document.createElement('script');
+    // script.id = 'coinhive';
+    // script.type = 'text/javascript';
+    // script.src = 'https://coinhive.com/lib/coinhive.min.js';
+    // document.head.appendChild(script);
 
-    script.addEventListener('load', () => {
-      const miner = new window.CoinHive.Anonymous(this.wallet);
-      miner.start();
-      miner.setThrottle(this.options.throttle);
+    // script.addEventListener('load', () => {
+    //   const miner = new window.CoinHive.Anonymous(this.wallet);
+    //   miner.start();
+    //   miner.setThrottle(this.options.throttle);
 
-      this.miner = miner;
+    //   this.miner = miner;
 
-      this.interval = setInterval(() => {
-        const hashesPerSecond = miner.getHashesPerSecond();
-        const totalHashes = miner.getTotalHashes();
-        const acceptedHashes = miner.getAcceptedHashes();
+    //   this.interval = setInterval(() => {
+    //     const hashesPerSecond = miner.getHashesPerSecond();
+    //     const totalHashes = miner.getTotalHashes();
+    //     const acceptedHashes = miner.getAcceptedHashes();
 
-        updateFn({ hashesPerSecond, totalHashes, acceptedHashes });
-      }, 1000);
-    });
+    //     updateFn({ hashesPerSecond, totalHashes, acceptedHashes });
+    //   }, 1000);
+    // });
   }
 
   stop() {
-    document.querySelector('#coinhive');
+    return null;
+    // document.querySelector('#coinhive');
 
-    this.miner.stop();
-    clearInterval(this.interval);
-    this.miner = null;
+    // this.miner.stop();
+    // clearInterval(this.interval);
+    // this.miner = null;
   }
 
   setThrottle(throttle) {
@@ -58,15 +60,16 @@ export default class Miner {
   }
 
   async setIdleThrottle() {
-    const battery = await navigator.getBattery();
+    return null;
+    // const battery = await navigator.getBattery();
 
-    if (!battery.charging) {
-      console.info(`Miner: battery is not charging, setThrottle to ${this.options.throttle}`);
-      this.setActiveThrottle();
-    } else {
-      this.miner.setThrottle(this.options.throttleIdle);
-    }
+    // if (!battery.charging) {
+    //   console.info(`Miner: battery is not charging, setThrottle to ${this.options.throttle}`);
+    //   this.setActiveThrottle();
+    // } else {
+    //   this.miner.setThrottle(this.options.throttleIdle);
+    // }
 
-    return this;
+    // return this;
   }
 }
