@@ -15,6 +15,7 @@ export default class User {
   @observable donor = {};
   @observable isDonor = false;
   @observable isMiner = false;
+  @observable locale = false;
 
   constructor(data) {
     if (!data.id) {
@@ -30,12 +31,9 @@ export default class User {
     this.isPremium = true; // data.isPremium || this.isPremium;
     this.beta = data.beta || this.beta;
     this.donor = data.donor || this.donor;
-    this.isDonor = true; // data.isDonor || this.isDonor;
-    this.isSubscriptionOwner =  true; // data.isSubscriptionOwner || this.isSubscriptionOwner;
-    this.isMiner = false; //data.isMiner || this.isMiner;
+    this.isDonor = true;
+    this.isSubscriptionOwner = true;
+    this.isMiner = false;
+    this.locale = data.locale || this.locale;
   }
-
-  // @computed get isPremium() {
-  //
-  // }
 }
